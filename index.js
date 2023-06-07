@@ -154,4 +154,8 @@ const addEngineer = () => {
     
     };
 
-    
+    const buildTeam = () => {
+        fs.writeFileSync("generatedHTML.html", generateWebPage(teamArray), "utf8")
+    }
+
+    addManager()
