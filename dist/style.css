@@ -1,0 +1,21 @@
+* { 
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    justify-content: center;
+    display: flex;
+    color: grey;
+    background-color: lightblue;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-header {
+    color: darkblue;
+    background-color: whitesmoke;
+}
