@@ -18,6 +18,8 @@ In order to use this app, first start by running "node index.js" in your index.j
 
 Front end need to be added to make profile generator friendly.
 
+## Guide video example
+
 # License
 
 The MIT license.
