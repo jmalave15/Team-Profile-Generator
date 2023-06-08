@@ -1,10 +1,10 @@
-const inquirer = ('requirer');
+const inquirer = require('inquirer');
 const fs = require('fs');
 const teamArray = [];
-const html = "";
-const Manager = require ("./lib/Manager");
-const Engineer = require ("./lib/Engineer");
-const Intern = require ("./lib/Intern");
+var html = "";
+const Manager = require ('./lib/Manager');
+const Engineer = require ('./lib/Engineer');
+const Intern = require('./lib/Intern');
 const generateWebPage = require ('./generateWebPage');
 
 
@@ -33,48 +33,49 @@ const addManager = () => {
     {
 
         type: "input",
-        message: "Enter manager number",
-        name:"number"
+        message: "Enter manager office number",
+        name:"office"
 
     },
 
     ])
         .then((answers) => {
-            const manager = new Manager(answers.name, answers.id, answers.email, answers.number);
-            teamArray.push(manager)
+            const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
+            teamArray.push(manager);
+            console.log(manager);
             chooseEmployee();
         })
 
 }
 
-const addEmployee = () => {
-    return inquirer.prompt([
+const chooseEmployee = () => {
+    return inquirer
+      .prompt([
         {
-            type: "list",
-            message: "Are you sure you want to add any of these options?",
-            name: "Add options",
-            choices: [
-                'Add Engineer',
-                'Add Intern',
-                'Finish building team'
-            ]
+          type: "list",
+          message: "Are you sure you want to add any of these options?",
+          name: "Add options", 
+          choices: [
+            'Add Engineer',
+            'Add Intern',
+            'Finish building team'
+          ]
         }
-    ])
-        .then(pickedOption => {
-            switch (pickedOption.Adding){
-                case "Add Engineer":
-                    addEngineer();
-                    break;
-                case "Add Intern":
-                    addIntern();
-                    break;
-                default:
-                    buildTeam();
-                    break;
-            }
-        });
-
-};
+      ])
+      .then(pickedOption => {
+        switch (pickedOption["Add options"]) { 
+          case "Add Engineer":
+            addEngineer();
+            break;
+          case "Add Intern":
+            addIntern();
+            break;
+          default:
+            buildTeam();
+            break;
+        }
+      });
+  };
 
 
 const addEngineer = () => {
@@ -155,7 +156,7 @@ const addEngineer = () => {
     };
 
     const buildTeam = () => {
-        fs.writeFileSync("generatedHTML.html", generateWebPage(teamArray), "utf8")
+        fs.writeFileSync("generatedHTML.html", generateWebPage(teamArray), "utf-8")
     }
 
     addManager()
