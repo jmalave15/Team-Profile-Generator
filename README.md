@@ -20,6 +20,10 @@ Front end need to be added to make profile generator friendly.
 
 ## Guide video example
 
+
+https://github.com/jmalave15/Team-Profile-Generator/assets/120431488/381e82f6-e894-4b7f-801f-03452b88b4a5
+
+
 # License
 
 The MIT license.
